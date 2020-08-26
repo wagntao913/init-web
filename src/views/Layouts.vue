@@ -60,5 +60,8 @@ export default {
   .trigger:hover {
     color: #1890ff;
   }
+  /deep/ .ant-menu-inline {
+    height: 100vh-64px;
+  }
 }
 </style>
