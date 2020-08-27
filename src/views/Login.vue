@@ -1,6 +1,9 @@
 <template>
   <div class="page-content">
-    <a-card hoverable style="width: 300px;opacity: 0.82;border-radius:5px;">
+    <a-card
+      hoverable
+      style="width: 300px;opacity: 0.82;border-radius:5px;background:rgba(255,255,255,0.5)"
+    >
       <a-form-model
         layout="vertical"
         :model="formInline"
@@ -22,11 +25,7 @@
           </a-input>
         </a-form-model-item>
         <a-form-model-item>
-          <a-button
-            type="primary"
-            html-type="submit"
-            :disabled="formInline.user === '' || formInline.password === ''"
-          >
+          <a-button type="" html-type="submit" block ghost>
             Log in
           </a-button>
         </a-form-model-item>
@@ -60,6 +59,10 @@ export default {
   align-items: center;
   text-align: center;
   justify-content: center;
-  background-image: url(../assets/bg.jpg);
+  background: url(../assets/bg1.jpg) no-repeat;
+  background-size: cover;
+  .ant-card-bordered {
+    border: none;
+  }
 }
 </style>
