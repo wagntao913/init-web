@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve --mode development",
+    "build": "vue-cli-service build --mode production",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "ant-design-vue": "^1.6.5",
+    "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "mavon-editor": "^2.9.0",
     "vue": "^2.6.11",
