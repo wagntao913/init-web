@@ -6,3 +6,14 @@ export function getUserList() {
     method: "GET"
   });
 }
+
+export function login({ username, password }) {
+  return request({
+    url: "/users/login",
+    method: "POST",
+    data: {
+      username,
+      password
+    }
+  });
+}

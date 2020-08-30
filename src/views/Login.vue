@@ -34,6 +34,7 @@
   </div>
 </template>
 <script>
+import { login } from "@/api/user";
 export default {
   data() {
     return {
@@ -46,6 +47,13 @@ export default {
   methods: {
     handleSubmit() {
       console.log(this.formInline);
+      const params = {
+        username: this.formInline.user,
+        password: this.formInline.password
+      };
+      login(params).then(res => {
+        console.log(res);
+      });
     }
   }
 };
