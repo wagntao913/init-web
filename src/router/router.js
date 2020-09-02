@@ -3,7 +3,6 @@ import Layouts from "../views/Layouts.vue";
 const routes = [
   {
     path: "/",
-    name: "Home",
     redirect: "/home",
     component: Layouts,
     children: [

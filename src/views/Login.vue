@@ -7,7 +7,7 @@
       <a-form-model
         layout="vertical"
         :model="formInline"
-        @submit="handleSubmit"
+        @submit="loginClick()"
         @submit.native.prevent
       >
         <a-form-model-item>
@@ -34,7 +34,6 @@
   </div>
 </template>
 <script>
-import { login } from "@/api/user";
 export default {
   data() {
     return {
@@ -44,15 +43,26 @@ export default {
       }
     };
   },
+  watch: {
+    $route: {
+      deep: true,
+      immediate: true,
+      handler(route) {
+        this.redirect = route.query && route.query.redirect;
+      }
+    }
+  },
   methods: {
-    handleSubmit() {
+    loginClick() {
       console.log(this.formInline);
       const params = {
         username: this.formInline.user,
         password: this.formInline.password
       };
-      login(params).then(res => {
-        console.log(res);
+      this.$store.dispatch("Login", params).then(() => {
+        this.$router.push({
+          path: this.redirect || "/"
+        });
       });
     }
   }

@@ -17,3 +17,10 @@ export function login({ username, password }) {
     }
   });
 }
+
+export function getUserInfoById(id) {
+  return request({
+    url: `/users/getUserInfo/${id}`,
+    method: "GET"
+  });
+}

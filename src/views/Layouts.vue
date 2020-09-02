@@ -1,6 +1,6 @@
 <template>
   <a-layout class="layouts">
-    <a-layout :style="{}">
+    <a-layout>
       <a-layout-sider
         theme="light"
         v-model="collapsed"
@@ -28,7 +28,6 @@
       <a-layout style="min-height: 100vh;">
         <a-layout-header
           :style="{
-            position: 'fixed',
             zIndex: 1,
             width: '100%',
             background: '#fff',
@@ -36,52 +35,37 @@
             height: '44px'
           }"
         >
-          <div>
+          <div
+            style="display: flex;justify-content: space-between;align-item:center;"
+          >
             <a-icon
               class="trigger"
               :type="collapsed ? 'menu-unfold' : 'menu-fold'"
               @click="() => (collapsed = !collapsed)"
             />
-            <a-dropdown class="right-header-content">
+            <a-dropdown
+              class="right-header-content"
+              :overlayStyle="{ zIndex: 100 }"
+            >
               <a class="ant-dropdown-link" @click="e => e.preventDefault()">
                 <a-avatar
                   src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png"
                 ></a-avatar>
-                Hover me
+                张无忌
               </a>
               <a-menu slot="overlay">
                 <a-menu-item key="0">
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="http://www.alipay.com/"
-                    >1st menu item</a
-                  >
+                  <a>个人中心</a>
                 </a-menu-item>
                 <a-menu-item key="1">
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="http://www.taobao.com/"
-                    >2nd menu item</a
-                  >
-                </a-menu-item>
-                <a-menu-divider />
-                <a-menu-item key="3" disabled>
-                  3rd menu item（disabled）
+                  <a>退出登录</a>
                 </a-menu-item>
               </a-menu>
             </a-dropdown>
           </div>
-          <!-- <a-avatar
-            shape="circle"
-            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-          /> -->
         </a-layout-header>
-        <a-layout-content
-          :style="{ background: '#fff', padding: '15px', marginTop: '44px' }"
-        >
-          <transition>
+        <a-layout-content :style="{ background: '#fff', padding: '15px' }">
+          <transition fade>
             <router-view />
           </transition>
         </a-layout-content>
@@ -154,10 +138,12 @@ export default {
     background: rgba(0, 0, 0, 0.025);
   }
   .right-header-content {
+    z-index: 100;
     height: 44px;
     color: rgba(0, 0, 0, 0.65);
     // background: #eee;
-    padding: 12px;
+    margin-right: 25px;
+    padding: 0px 10px;
   }
   .right-header-content:hover {
     color: @primary-color;
@@ -172,8 +158,5 @@ export default {
     line-height: 44px;
     background: #001529;
   }
-  // /deep/ .ant-menu-vertical .ant-menu-item {
-  //   margin-top: 0;
-  // }
 }
 </style>

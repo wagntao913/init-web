@@ -9,6 +9,8 @@ import "ant-design-vue/dist/antd.less";
 import mavonEditor from "mavon-editor";
 import "mavon-editor/dist/css/index.css";
 
+import "./permission";
+
 Vue.use(mavonEditor);
 Vue.use(antd);
 
